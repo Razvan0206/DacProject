@@ -69,5 +69,21 @@ public class Player : MonoBehaviour
 
 
     }
+    public void leftD()
+    {
+        left = true;
+    }
+    public void leftU()
+    {
+        left = false;
+    }
+    public void RightD()
+    {
+        right = true;
+    }
+    public void RightU()
+    {
+        right = false;
+    }
 
 }
