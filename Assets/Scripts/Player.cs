@@ -18,6 +18,11 @@ public class Player : MonoBehaviour
           rb.AddForce(transform.up*JumpForce);
           Debug.Log("GroundCollide");
         }
+        if(collision.gameObject.tag == "Coin")
+        {
+            Destroy(collision.gameObject);
+            PlayerPrefs.SetInt( "Coins", PlayerPrefs.GetInt("Coins") + 1);
+        }
         
         
 
