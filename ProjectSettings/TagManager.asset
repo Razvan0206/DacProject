@@ -14,8 +14,8 @@ TagManager:
   - UI
   - 
   - 
-  - Ground
-  - 
+  - Player
+  - Efecte/Particule
   - 
   - 
   - 
@@ -41,4 +41,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 570877547
+    locked: 0
+  - name: Particule
+    uniqueID: 868917785
     locked: 0
