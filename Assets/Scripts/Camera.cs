@@ -10,13 +10,14 @@ public class Camera : MonoBehaviour
     public float PlayerY2;
     public Vector3 offset;
     
-     void Update()
+    void FixedUpdate()
     {
-       Follow();
-        
-      Vector3 playerPosition = Player.position;
-      PlayerY1 = playerPosition.y;
-  
+        Vector3 playerPosition = Player.position;
+        PlayerY1 = playerPosition.y;
+        if(transform.position.y < PlayerY1)
+        {
+            Follow();
+        }
     }
     
     public void Follow()
@@ -25,7 +26,7 @@ public class Camera : MonoBehaviour
         Vector3 position = transform.position ;
       position.y = (Player.position + offset).y ;
       
-      transform.position = position ;
+      transform.position = Vector3.Lerp(transform.position,position,Time.deltaTime);
     }
 
 }
