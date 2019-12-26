@@ -19,6 +19,18 @@ public class Player : MonoBehaviour
             rb.AddForce(transform.up * JumpForce);
             Debug.Log("GroundCollide");
         }
+        
+        if (collision.gameObject.tag == "DeathGround")
+        {
+            Invoke("Death", 2.5f);
+            Audio.Explosion();
+        }
+
+
+
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
         if (collision.gameObject.tag == "Coin")
         {
             Destroy(collision.gameObject);
@@ -31,13 +43,6 @@ public class Player : MonoBehaviour
             rb.AddForce(transform.up * JumpForce * 3);
             Destroy(collision.gameObject);
         }
-        if (collision.gameObject.tag == "DeathGround")
-        {
-            Invoke("Death", 2.5f);
-            Audio.Explosion();
-        }
-
-
 
     }
 
