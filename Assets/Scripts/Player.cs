@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     public bool left;
     public bool right;
     public Rigidbody2D rb;
+    public AudioManager Coin;
+    
     
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -22,6 +24,8 @@ public class Player : MonoBehaviour
         {
             Destroy(collision.gameObject);
             PlayerPrefs.SetInt( "Coins", PlayerPrefs.GetInt("Coins") + 1);
+            Coin.Coin();
+            
         }
         if (collision.gameObject.tag == "Gasoline")
         {
