@@ -22,7 +22,7 @@ public class Camera : MonoBehaviour
     
     public void Follow()
     {
-        Debug.Log("Following");
+       
         Vector3 position = transform.position ;
       position.y = (Player.position + offset).y ;
       
