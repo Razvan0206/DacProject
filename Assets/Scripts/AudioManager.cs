@@ -6,11 +6,17 @@ using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour
 {
     public AudioSource CoinSound;
-    
+    public AudioSource ExplosionSound;
+
     public void Coin()
     {
         CoinSound.Play();
+
+    }
+    public void Explosion()
+    {
+        ExplosionSound.Play();
     }
 
-    
+
 }

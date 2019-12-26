@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Coin
   - Gasoline
+  - DeathGround
   layers:
   - Default
   - TransparentFX

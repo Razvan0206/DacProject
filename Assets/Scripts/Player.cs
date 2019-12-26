@@ -4,33 +4,37 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
-{   
+{
     public float JumpForce;
     public float SidewaysForce;
     public bool left;
     public bool right;
     public Rigidbody2D rb;
-    public AudioManager Coin;
-    
-    
+    public AudioManager Audio;
+
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Ground")
+        if (collision.gameObject.tag == "Ground")
         {
-          rb.AddForce(transform.up*JumpForce);
-          Debug.Log("GroundCollide");
+            rb.AddForce(transform.up * JumpForce);
+            Debug.Log("GroundCollide");
         }
-        if(collision.gameObject.tag == "Coin")
+        if (collision.gameObject.tag == "Coin")
         {
             Destroy(collision.gameObject);
-            PlayerPrefs.SetInt( "Coins", PlayerPrefs.GetInt("Coins") + 1);
-            Coin.Coin();
-            
+            PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 1);
+            Audio.Coin();
+
         }
         if (collision.gameObject.tag == "Gasoline")
         {
-            rb.AddForce(transform.up * JumpForce*3);
+            rb.AddForce(transform.up * JumpForce * 3);
             Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.tag == "DeathGround")
+        {
+            Invoke("Death", 2.5f);
+            Audio.Explosion();
         }
 
 
@@ -59,22 +63,17 @@ public class Player : MonoBehaviour
             right = false;
         }
         //
-        if(left == true)
+        if (left == true)
         {
-          rb.AddForce(transform.right*-SidewaysForce);
-          Debug.Log("left");
+            rb.AddForce(transform.right * -SidewaysForce);
+            Debug.Log("left");
         }
-        if(right == true)
+        if (right == true)
         {
-          rb.AddForce(transform.right*SidewaysForce);
-          Debug.Log("right");
+            rb.AddForce(transform.right * SidewaysForce);
+            Debug.Log("right");
         }
-        if(gameObject.transform.position.y < -10)
-        {
-            SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
-
-
-        }
+        
 
 
     }
@@ -93,6 +92,10 @@ public class Player : MonoBehaviour
     public void RightU()
     {
         right = false;
+    }
+    public void Death()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 }
