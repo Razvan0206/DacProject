@@ -23,8 +23,13 @@ public class Player : MonoBehaviour
             Destroy(collision.gameObject);
             PlayerPrefs.SetInt( "Coins", PlayerPrefs.GetInt("Coins") + 1);
         }
-        
-        
+        if (collision.gameObject.tag == "Gasoline")
+        {
+            rb.AddForce(transform.up * JumpForce*3);
+            Destroy(collision.gameObject);
+        }
+
+
 
     }
 
