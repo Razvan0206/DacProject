@@ -7,6 +7,8 @@ public class Score : MonoBehaviour
 {
     public Transform player;
     public Text scoretext;
+    public Text HighScoreText;
+
     public float pos;
     public float maximum;
     public float score;
@@ -16,11 +18,17 @@ public class Score : MonoBehaviour
         {
             maximum = pos;
         }
-        score = maximum / 3;
+        score = maximum;
         pos = player.position.y;
 
         scoretext.text = score.ToString("0");
+        if(PlayerPrefs.GetInt("HighScore") < maximum)
+        {
+            PlayerPrefs.SetInt("HighScore", (int)maximum);
+        }
+        HighScoreText.text = "HighScore: " + PlayerPrefs.GetInt("HighScore").ToString();
     }
+
 
 
 }
