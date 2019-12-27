@@ -33,7 +33,7 @@ public class AutoDestroy : MonoBehaviour
     {
         if (dist > 0)
         {
-            PlayerPrefs.SetInt("Count", 3);
+            PlayerPrefs.SetInt("Count", 7);
             Destroy(this.gameObject);
         }   
     }

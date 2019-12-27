@@ -11,14 +11,14 @@ public class Generator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timer = 5;
+        timer = 2;
         nextY2 = 5;
-        PlayerPrefs.SetInt("Count", 4);
+        PlayerPrefs.SetInt("Count", 8);
         count = 1;
         nextY = -2;
         nextPos = new Vector2(Random.Range(-1.5f, 1.5f), nextY);
         Instantiate(platform, nextPos, transform.rotation);
-        while (count < 4)
+        while (count < 8)
         {
             nextY += Random.Range(3, 3.5f);
             nextPos = new Vector2(Random.Range(-1.5f, 1.5f), nextY);
@@ -35,14 +35,14 @@ public class Generator : MonoBehaviour
         {
             Instantiate(coins, new Vector2(Random.Range(-1.5f, 1.5f), transform.position.y+nextY2), transform.rotation);
             nextY2 += Random.Range(10, 12);
-            timer = 5;
+            timer = 2;
         }
         if(count > PlayerPrefs.GetInt("Count"))
         {
             nextY += Random.Range(3, 3.5f);
             nextPos = new Vector2(Random.Range(-1.5f, 1.5f), nextY);
             Instantiate(platform, nextPos, transform.rotation);
-            PlayerPrefs.SetInt("Count", 4);
+            PlayerPrefs.SetInt("Count", 8);
         }
     }
 }
