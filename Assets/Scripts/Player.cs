@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        if (collision.gameObject.tag == "Ground" )
         {
             rb.AddForce(transform.up * JumpForce);
             Debug.Log("GroundCollide");
@@ -26,10 +26,8 @@ public class Player : MonoBehaviour
             Invoke("Death", 2.5f);
             Audio.Explosion();
         }
-
-
-
     }
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Coin")
