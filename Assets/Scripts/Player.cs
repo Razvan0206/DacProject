@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public bool right;
     public Rigidbody2D rb;
     public AudioManager Audio;
+    public Canvas restart;
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -100,7 +101,8 @@ public class Player : MonoBehaviour
     }
     public void Death()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        
+        restart.enabled = true;
     }
 
 }

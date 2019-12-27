@@ -5,13 +5,22 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-     public Text coinText;
-     public int coins;
+    public Transform player;
+    public Text scoretext;
+    public float pos;
+    public float maximum;
+    public float score;
     void Update()
     {
-        coinText.text = "Coins: " + coins;
-        coins = PlayerPrefs.GetInt("Coins");
-        
-        
+        if (pos > maximum)
+        {
+            maximum = pos;
+        }
+        score = maximum / 3;
+        pos = player.position.y;
+
+        scoretext.text = score.ToString("0");
     }
+
+
 }
