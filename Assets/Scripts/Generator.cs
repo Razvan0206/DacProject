@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Generator : MonoBehaviour
 {
-    public int count;
+    public int count,count2;
     Vector2 nextPos;
-    float nextY,timer,nextY2;
-    public GameObject platform,coins;
+    float nextY,timer,nextY2,nextY3;
+    public GameObject platform,coins,bg;
     // Start is called before the first frame update
     void Start()
     {
+
         timer = 2;
         nextY2 = 5;
         PlayerPrefs.SetInt("Count", 8);
@@ -24,6 +25,18 @@ public class Generator : MonoBehaviour
             nextPos = new Vector2(Random.Range(-1.5f, 1.5f), nextY);
             Instantiate(platform, nextPos, transform.rotation);
             count++;
+        }
+        PlayerPrefs.SetInt("Count2", 8);
+        count2 = 1;
+        nextY3 = 0;
+        nextPos = new Vector2(0, nextY3);
+        Instantiate(bg, nextPos, transform.rotation);
+        while (count2 < 8)
+        {
+            nextY3 += 10;
+            nextPos = new Vector2(0, nextY3);
+            Instantiate(bg, nextPos, transform.rotation);
+            count2++;
         }
     }
 
@@ -43,6 +56,13 @@ public class Generator : MonoBehaviour
             nextPos = new Vector2(Random.Range(-1.5f, 1.5f), nextY);
             Instantiate(platform, nextPos, transform.rotation);
             PlayerPrefs.SetInt("Count", 8);
+        }
+        if (count2 > PlayerPrefs.GetInt("Count2"))
+        {
+            nextY3 += 10;
+            nextPos = new Vector2(0, nextY3);
+            Instantiate(bg, nextPos, transform.rotation);
+            PlayerPrefs.SetInt("Count2", 8);
         }
     }
 }
