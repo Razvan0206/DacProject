@@ -12,11 +12,13 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb;
     public AudioManager Audio;
     public Canvas restart;
+    public float timer;
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Ground" )
         {
+            timer = 0;
             rb.AddForce(transform.up * JumpForce);
             Debug.Log("GroundCollide");
         }
@@ -47,6 +49,12 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        timer += Time.deltaTime;
+        do
+        {
+            Physics2D.IgnoreLayerCollision(0, 1);
+        } while (timer <= 0);
+        
         //A
         if (Input.GetKeyDown(KeyCode.A))
         {
