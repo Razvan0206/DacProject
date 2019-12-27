@@ -2136,6 +2136,11 @@ PrefabInstance:
       propertyPath: ShapeModule.radiusThickness
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4076867805057433013, guid: c4195c24424b3b24cae8b307e56d5cba,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4076867805057433015, guid: c4195c24424b3b24cae8b307e56d5cba,
         type: 3}
       propertyPath: m_Name
