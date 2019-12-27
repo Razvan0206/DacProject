@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer <= 0.7f)
+        if (timer <= 0.4f)
         {
             coll.enabled = false;
         }
