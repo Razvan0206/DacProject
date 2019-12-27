@@ -2188,7 +2188,7 @@ MonoBehaviour:
   Nava: {fileID: 1760335560}
   Camera: {fileID: 519420032}
   Player: {fileID: 1836909390}
-  RestartCan: {fileID: 0}
+  RestartCan: {fileID: 781271749}
 --- !u!114 &781271747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2427,8 +2427,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 833674128}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.15, y: 3.5, z: 0}
-  m_LocalScale: {x: 0.17261396, y: 2.6400197, z: 1}
+  m_LocalPosition: {x: 3.15, y: 9.318, z: 0}
+  m_LocalScale: {x: 0.17261396, y: 4.440513, z: 1}
   m_Children: []
   m_Father: {fileID: 519420032}
   m_RootOrder: 4
@@ -4369,8 +4369,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2099319519}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.097, y: 3.5, z: 0}
-  m_LocalScale: {x: 0.17261396, y: 2.6400197, z: 1}
+  m_LocalPosition: {x: -3.097, y: 9.354, z: 0}
+  m_LocalScale: {x: 0.17261396, y: 4.451073, z: 1}
   m_Children: []
   m_Father: {fileID: 519420032}
   m_RootOrder: 3
