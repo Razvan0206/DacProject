@@ -8,9 +8,13 @@ public class Restart : MonoBehaviour
     public Transform Nava;
     public Transform Camera;
     public Transform Player;
+    public Canvas RestartCan;
+    
     public void Continue()
     {
-
+        Nava.position = new Vector3(Nava.position.x, Camera.position.y -4 , Nava.position.z);
+        Player.position = new Vector3(Camera.position.x, Camera.position.y, Camera.position.z);
+        RestartCan.enabled = false;
     }
     public void Restart1()
     {
