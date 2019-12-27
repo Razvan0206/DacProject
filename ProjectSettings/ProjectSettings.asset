@@ -636,9 +636,9 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  cloudProjectId: 13b93706-80dd-4257-94da-2a0964c664f5
+  cloudProjectId: 9440ae46-9f49-4935-ac29-cc90d12d406d
   framebufferDepthMemorylessMode: 0
-  projectName: PooMinigame
+  projectName: PooMinigame (1)
   organizationId: bearstrikegames
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
