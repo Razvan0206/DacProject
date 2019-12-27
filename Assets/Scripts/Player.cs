@@ -13,16 +13,25 @@ public class Player : MonoBehaviour
     public AudioManager Audio;
     public Canvas restart;
     public float timer;
-
+    Collider2D coll;
+    private void Start()
+    {
+        timer = 1;
+        coll = GetComponent<Collider2D>();
+    }
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground" )
+        if (collision.gameObject.tag == "Ground")
         {
-            timer = 0;
             rb.AddForce(transform.up * JumpForce);
+            timer = 0;
             Debug.Log("GroundCollide");
         }
-        
+        if (collision.gameObject.tag == "Space")
+        {
+            rb.AddForce(transform.up * JumpForce);
+
+        }
         if (collision.gameObject.tag == "DeathGround")
         {
             Invoke("Death", 2.5f);
@@ -50,11 +59,14 @@ public class Player : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        do
+        if (timer <= 0.7f)
         {
-            Physics2D.IgnoreLayerCollision(0, 1);
-        } while (timer <= 0);
-        
+            coll.enabled = false;
+        }
+        else
+        {
+            coll.enabled = true;
+        }
         //A
         if (Input.GetKeyDown(KeyCode.A))
         {
